@@ -11,7 +11,7 @@ class IndexController extends AbstractController
     #[Route('{any?}', methods: ['GET'])]
     public function index(): Response
     {
-        $file = new File('/Users/ca/Developer/Web/Symfony/example-app/public/index.html');
+        $file = new File($this->getParameter('kernel.project_dir') . '/public/index.html');
         return new Response($file->getContent());
     }
 }
